@@ -9,7 +9,7 @@ spec:
   replicas: 2
   template:
     metadata:
-      lables:
+      labels:
         app: practice-jenkins
     spec:
       containers:
