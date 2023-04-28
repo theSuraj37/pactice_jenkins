@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practice-jenkins-deployment
+spec:
+  selector:
+    matchLabes:
+      app: practice-jenkins
+  replicas: 2
+  template:
+    metadata:
+      lables:
+        app: practice-jenkins
+    spec:
+      containers:
+        - name: practice-jenkins
+          image: surajkpvd/demo-project
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
+
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: practice-jenkinssvc
+spec:
+  selector:
+    app: practice-jenkins
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: NodePort
