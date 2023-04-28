@@ -27,5 +27,12 @@ pipeline {
                 }
             }
         }
+        stage("Deploy App"){
+            steps{
+                script{
+                    kubernetesDeploy configs: 'deploymentservice.yaml', kubeconfigId: 'k8sconfigpwd'
+                }
+            }
+        }
     }
 }
