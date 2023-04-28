@@ -4,7 +4,7 @@ metadata:
   name: practice-jenkins-deployment
 spec:
   selector:
-    matchLabes:
+    matchLabels:
       app: practice-jenkins
   replicas: 2
   template:
