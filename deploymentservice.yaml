@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: practice-jenkins-deployment
+  name: practice-jenkins
 spec:
   selector:
     matchLabels:
@@ -25,12 +25,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: practice-jenkinssvc
+  name: practice-jenkins
 spec:
+  ports:
+    - port: 8072
+      targetPort: 8072
+      protocol: TCP
+      name: tcp-practice-jenkins-port
   selector:
     app: practice-jenkins
-  ports:
-    - protocol: "TCP"
-      port: 8080
-      targetPort: 8080
-  type: NodePort
