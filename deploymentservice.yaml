@@ -27,10 +27,10 @@ kind: Service
 metadata:
   name: practice-jenkins
 spec:
-  ports:
-    - port: 8072
-      targetPort: 8072
-      protocol: TCP
-      name: tcp-practice-jenkins-port
   selector:
     app: practice-jenkins
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  type: NodePort
